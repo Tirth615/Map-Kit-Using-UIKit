@@ -1,24 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TryMapKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UB-rj-a0n">
+                                <rect key="frame" x="0.0" y="168" width="393" height="684"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C3G-7G-YgE">
+                                <rect key="frame" x="0.0" y="118" width="393" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gfS-Gm-3Yf"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="v4f-SY-gvi"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-H6-Dg4">
+                                <rect key="frame" x="0.0" y="168" width="393" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="UBf-rh-43W"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C3G-7G-YgE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0S0-wq-PbD"/>
+                            <constraint firstItem="Ghf-H6-Dg4" firstAttribute="top" secondItem="C3G-7G-YgE" secondAttribute="bottom" id="3io-r7-6ok"/>
+                            <constraint firstItem="C3G-7G-YgE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="APd-uM-opw"/>
+                            <constraint firstAttribute="bottom" secondItem="2UB-rj-a0n" secondAttribute="bottom" id="DM7-NF-Len"/>
+                            <constraint firstItem="C3G-7G-YgE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UTQ-is-PkX"/>
+                            <constraint firstItem="2UB-rj-a0n" firstAttribute="top" secondItem="C3G-7G-YgE" secondAttribute="bottom" id="Vad-M2-WdY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2UB-rj-a0n" secondAttribute="trailing" id="VwX-oB-FCX"/>
+                            <constraint firstItem="Ghf-H6-Dg4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bTg-sB-g5I"/>
+                            <constraint firstItem="2UB-rj-a0n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h1M-Gn-mQ4"/>
+                            <constraint firstItem="Ghf-H6-Dg4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nO1-HU-Fta"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Mapkit" destination="2UB-rj-a0n" id="gAc-sj-OHv"/>
+                        <outlet property="mytableview" destination="Ghf-H6-Dg4" id="ci3-1x-xKy"/>
+                        <outlet property="searchBarMap" destination="C3G-7G-YgE" id="wka-LO-WJz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
