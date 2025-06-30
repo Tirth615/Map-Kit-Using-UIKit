@@ -5,7 +5,7 @@ This project showcases displaying a map, dynamically dropping pins, searching lo
 
 ---
 
-##📱 Features
+## 📱 Features
 - Interactive map powered by `MKMapView`
 - Center map on the user’s current location
 - Search for places with a `UISearchBar`
