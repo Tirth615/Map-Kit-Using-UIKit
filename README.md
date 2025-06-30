@@ -1,37 +1,44 @@
 # MapKit Example using UIKit
 
-An iOS application demonstrating how to integrate **MapKit** with **UIKit**.  
-This project shows how to display a map, drop pins dynamically, search locations, and handle user interactions.
+An iOS application that demonstrates how to integrate **MapKit** with **UIKit**.  
+This project showcases displaying a map, dynamically dropping pins, searching locations, and handling user interactions—all using UIKit.
+
+---
 
 ##📱 Features
+- Interactive map powered by `MKMapView`
+- Center map on the user’s current location
+- Search for places with a `UISearchBar`
+- Drop pins (annotations) on tap
+- Reverse geocode coordinates to display addresses
+- Show search results in a `UITableView`
+- **Display route directions between two points on the map**
+- Smooth UIKit-based UI and user experience
 
-- Display an interactive map using `MKMapView`
-- Center the map on the user's current location
-- Search for locations using a `UISearchBar`
-- Add pins (annotations) by tapping on the map
-- Reverse geocode coordinates to show addresses
-- Display a list of search results in a `UITableView`
+---
 
-##🛠️ Requirements
-
-- iOS 13.0+
-- Xcode 14+
-- Swift 5
-- UIKit
-
-##🚀 Installation
-
-Step 1:Copy the URl Of github Repositories
-
-     https://github.com/Tirth615/Map-Kit-Using-UIKit
-    
-Step 2: Clone The Repositories
-
-     git clone <repository-url>
-    
-Step 3: Open The Xcode
+## 🛠️ Requirements
+- **iOS:** 13.0 or later
+- **Xcode:** 14 or later
+- **Swift:** 5.x
+- **Frameworks:** UIKit, MapKit, CoreLocation
 
 
-Step 4: Run the project
+## 🚀 Getting Started
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/Tirth615/Map-Kit-Using-UIKit.git
+    ```
+2. **Open in Xcode**
+    - Navigate to the cloned folder.
+    - Double-click the `.xcodeproj` file to open the project in Xcode.
+3. **Build & Run**
+    - Select your desired simulator or device.
+    - Click the Run (`▶️`) button in Xcode.
 
-Finaly Your Project Was Run
+---
+
+## 🙋‍♂️ Author
+
+- [Tirth615](https://github.com/Tirth615)
+
