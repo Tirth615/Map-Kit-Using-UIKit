@@ -17,41 +17,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UB-rj-a0n">
-                                <rect key="frame" x="0.0" y="168" width="393" height="684"/>
-                                <standardMapConfiguration key="preferredConfiguration"/>
-                            </mapView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C3G-7G-YgE">
-                                <rect key="frame" x="0.0" y="118" width="393" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="gfS-Gm-3Yf"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="v4f-SY-gvi"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-H6-Dg4">
-                                <rect key="frame" x="0.0" y="168" width="393" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-1D-3XT">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C3G-7G-YgE">
+                                        <rect key="frame" x="0.0" y="70" width="393" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gfS-Gm-3Yf"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="v4f-SY-gvi"/>
+                                        </connections>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-H6-Dg4">
+                                        <rect key="frame" x="0.0" y="120" width="393" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="UBf-rh-43W"/>
+                                        </constraints>
+                                    </tableView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UB-rj-a0n">
+                                        <rect key="frame" x="0.0" y="120" width="393" height="732"/>
+                                        <standardMapConfiguration key="preferredConfiguration"/>
+                                    </mapView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="UBf-rh-43W"/>
+                                    <constraint firstItem="C3G-7G-YgE" firstAttribute="trailing" secondItem="Ghf-H6-Dg4" secondAttribute="trailing" id="A7e-Fs-upb"/>
+                                    <constraint firstItem="C3G-7G-YgE" firstAttribute="leading" secondItem="Ghf-H6-Dg4" secondAttribute="leading" id="G0e-sz-dMk"/>
+                                    <constraint firstItem="Ghf-H6-Dg4" firstAttribute="top" secondItem="C3G-7G-YgE" secondAttribute="bottom" id="OnS-Rr-3ZB"/>
+                                    <constraint firstItem="Ghf-H6-Dg4" firstAttribute="leading" secondItem="NFL-1D-3XT" secondAttribute="leading" id="S18-gy-XOj"/>
+                                    <constraint firstItem="2UB-rj-a0n" firstAttribute="top" secondItem="C3G-7G-YgE" secondAttribute="bottom" id="Xbe-jV-dur"/>
+                                    <constraint firstAttribute="trailing" secondItem="2UB-rj-a0n" secondAttribute="trailing" id="Y4o-4E-kke"/>
+                                    <constraint firstItem="C3G-7G-YgE" firstAttribute="trailing" secondItem="2UB-rj-a0n" secondAttribute="trailing" id="b9M-wQ-dVg"/>
+                                    <constraint firstAttribute="bottom" secondItem="2UB-rj-a0n" secondAttribute="bottom" id="ehy-US-PfR"/>
+                                    <constraint firstItem="2UB-rj-a0n" firstAttribute="leading" secondItem="NFL-1D-3XT" secondAttribute="leading" id="ewY-yY-bdo"/>
+                                    <constraint firstItem="C3G-7G-YgE" firstAttribute="top" secondItem="NFL-1D-3XT" secondAttribute="top" constant="70" id="iim-GY-CY3"/>
                                 </constraints>
-                            </tableView>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-Xn-VWn">
+                                <rect key="frame" x="323" y="747.66666666666663" width="50" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="location" catalog="system"/>
+                                <connections>
+                                    <action selector="btnLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="swz-gR-XsL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="C3G-7G-YgE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0S0-wq-PbD"/>
-                            <constraint firstItem="Ghf-H6-Dg4" firstAttribute="top" secondItem="C3G-7G-YgE" secondAttribute="bottom" id="3io-r7-6ok"/>
-                            <constraint firstItem="C3G-7G-YgE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="APd-uM-opw"/>
-                            <constraint firstAttribute="bottom" secondItem="2UB-rj-a0n" secondAttribute="bottom" id="DM7-NF-Len"/>
-                            <constraint firstItem="C3G-7G-YgE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UTQ-is-PkX"/>
-                            <constraint firstItem="2UB-rj-a0n" firstAttribute="top" secondItem="C3G-7G-YgE" secondAttribute="bottom" id="Vad-M2-WdY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2UB-rj-a0n" secondAttribute="trailing" id="VwX-oB-FCX"/>
-                            <constraint firstItem="Ghf-H6-Dg4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bTg-sB-g5I"/>
-                            <constraint firstItem="2UB-rj-a0n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h1M-Gn-mQ4"/>
-                            <constraint firstItem="Ghf-H6-Dg4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nO1-HU-Fta"/>
+                            <constraint firstAttribute="bottom" secondItem="NFL-1D-3XT" secondAttribute="bottom" id="3YA-QK-kjX"/>
+                            <constraint firstAttribute="trailing" secondItem="NFL-1D-3XT" secondAttribute="trailing" id="AGc-We-t1t"/>
+                            <constraint firstItem="NFL-1D-3XT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="HGX-yJ-jZV"/>
+                            <constraint firstItem="NFL-1D-3XT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ObM-Ns-PAX"/>
+                            <constraint firstAttribute="bottom" secondItem="kzG-Xn-VWn" secondAttribute="bottom" constant="70" id="UwS-Og-2Ec"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kzG-Xn-VWn" secondAttribute="trailing" constant="20" id="q0L-g8-5a3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -66,6 +88,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

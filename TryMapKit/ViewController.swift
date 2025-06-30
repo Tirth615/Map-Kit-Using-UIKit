@@ -117,6 +117,21 @@ class ViewController: UIViewController {
             )
         }
     }
+    
+    //MARK: - Button Action
+    @IBAction func btnLocation(_ sender: Any) {
+        if let annotations = Mapkit.annotations as? [MKPointAnnotation] {
+            for annotation in annotations {
+                if annotation.title != "Fixed Location" {
+                    Mapkit.removeAnnotation(annotation)
+                }
+            }
+        }
+        Mapkit.removeOverlays(Mapkit.overlays)
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        let region = MKCoordinateRegion(center: fixedCoordinate, span: span)
+        Mapkit.setRegion(region, animated: true)
+    }
 }
 
 //MARK: - MapKit Delegate
