@@ -48,9 +48,18 @@ class ViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(_:)))
         Mapkit.addGestureRecognizer(tapGesture)
+        
+        hotel()
     }
     
     //MARK: - Function
+    func hotel() {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 23.012870, longitude: 72.513893)
+        annotation.title = "My Marker"
+        Mapkit.addAnnotation(annotation)
+    }
+    
     func setuptableview() {
         mytableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
