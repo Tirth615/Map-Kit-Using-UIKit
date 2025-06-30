@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBarMap: UISearchBar!
     @IBOutlet weak var mytableview: UITableView!
     
-    
     //MARK: - Variable
     var centerPin: MKPointAnnotation?
     let geocoder = CLGeocoder()
@@ -49,8 +48,6 @@ class ViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(_:)))
         Mapkit.addGestureRecognizer(tapGesture)
-        
-        
     }
     
     //MARK: - Function
@@ -64,14 +61,12 @@ class ViewController: UIViewController {
     @objc func handleMapTap(_ gestureRecognizer: UITapGestureRecognizer) {
         let point = gestureRecognizer.location(in: Mapkit)
         let coordinate = Mapkit.convert(point, toCoordinateFrom: Mapkit)
-        
         updatePinAndRoute(to: coordinate)
     }
     
     func updatePinAndRoute(to coordinate: CLLocationCoordinate2D) {
         centerPin?.coordinate = coordinate
         geocoder.cancelGeocode()
-        
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
             guard let placemark = placemarks?.first, error == nil else {
@@ -115,6 +110,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - MapKit Delegate
 extension ViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? MKPolyline {
@@ -127,6 +123,7 @@ extension ViewController : MKMapViewDelegate {
     }
 }
 
+//MARK: - UITableView Delegate & DataSource
 extension ViewController : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         searchResualt.count
@@ -147,14 +144,15 @@ extension ViewController : UITableViewDataSource,UITableViewDelegate {
             mytableview.isHidden = true
         }
     }
-    
 }
 
+//MARK: - Search BAR Delegate
 extension ViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             searchResualt.removeAll()
             mytableview.reloadData()
+            mytableview.isHidden = true
             return
         }
         mytableview.isHidden = false
@@ -175,5 +173,4 @@ extension ViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-    
 }
