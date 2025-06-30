@@ -23,11 +23,11 @@ This project shows how to display a map, drop pins dynamically, search locations
 
 Step 1:Copy the URl Of github Repositories
 
-    $ https://github.com/Tirth615/Map-Kit-Using-UIKit
+     https://github.com/Tirth615/Map-Kit-Using-UIKit
     
 Step 2: Clone The Repositories
 
-    $ git clone <repository-url>
+     git clone <repository-url>
     
 Step 3: Open The Xcode
 
